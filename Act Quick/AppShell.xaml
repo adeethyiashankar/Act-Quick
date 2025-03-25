@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Act_Quick.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Act_Quick"
+    Shell.FlyoutBehavior="Flyout"
+    Title="Act Quick"
+    Shell.FlyoutWidth="200">
+
+    <!-- Flyout items -->    
+    <Shell.Items>
+        <FlyoutItem Title="Home">
+            <ShellContent Route="MainPage"
+                          ContentTemplate="{DataTemplate local:MainPage}"/>
+        </FlyoutItem>
+
+        <FlyoutItem Title="Emergencies List">
+            <ShellContent ContentTemplate="{DataTemplate local:ButtonListPage}"/>
+        </FlyoutItem>
+
+        <FlyoutItem Title="Emergency Kit">
+            <ShellContent ContentTemplate="{DataTemplate local:FactListPage}"/>
+        </FlyoutItem>
+    </Shell.Items>
+
+</Shell>
