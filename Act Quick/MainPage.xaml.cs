@@ -8,16 +8,21 @@
         }
         private async void ChangePageCommand(object sender, EventArgs e)
         {
-            string page = "";
-            string nextPage = "FactListPage";
             if (sender is Button button)
             {
-                page = button.Text;
-            }
-            if (page == "Emergencies List") nextPage = "ButtonListPage";
+                string? nextPage = button.Text switch
+                {
+                    "Emergencies List" => "ButtonListPage",
+                    "Emergency Kit" => "FactListPage",
+                    _ => null // Default for unsupported button text
+                };
 
-            // Navigate to the new page
-            await Shell.Current.GoToAsync($"{nextPage}");
+                // Check that nextPage is not null before navigating
+                if (nextPage is not null)
+                {
+                    await Shell.Current.GoToAsync(nextPage);
+                }
+            }
         }
     }
 }

@@ -24,11 +24,15 @@
 		<ApplicationTitle>Act Quick</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>adeethyiashankar.actquick</ApplicationId>
+		<ApplicationId>adeethyiashankar.act_quick</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
+
+		<AndroidMinSdkVersion>21</AndroidMinSdkVersion>
+		<AndroidTargetSdkVersion>34</AndroidTargetSdkVersion>
+		<Configuration>Release</Configuration>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>

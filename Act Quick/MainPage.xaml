@@ -15,23 +15,23 @@
 
             <Label
                 Text="Act Quick"
-                Style="{StaticResource Headline}" />
+                Style="{StaticResource Headline}"/>
 
             <Label
                 Text="Be prepared for emergencies!"
-                Style="{StaticResource SubHeadline}" />
+                Style="{StaticResource SubHeadline}"/>
 
             <Button
                 x:Name="EmergencyBtn"
                 Text="Emergencies List" 
                 SemanticProperties.Hint="Show emergencies list"
-                Clicked="ChangePageCommand" />
+                Clicked="ChangePageCommand"/>
 
             <Button
                 x:Name="KitBtn"
                 Text="Emergency Kit" 
                 SemanticProperties.Hint="Show emergency kit"
-                Clicked="ChangePageCommand" />
+                Clicked="ChangePageCommand"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

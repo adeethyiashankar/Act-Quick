@@ -11,8 +11,7 @@
     <!-- Flyout items -->    
     <Shell.Items>
         <FlyoutItem Title="Home">
-            <ShellContent Route="MainPage"
-                          ContentTemplate="{DataTemplate local:MainPage}"/>
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
         </FlyoutItem>
 
         <FlyoutItem Title="Emergencies List">

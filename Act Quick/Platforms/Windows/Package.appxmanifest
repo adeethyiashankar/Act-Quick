@@ -4,16 +4,17 @@
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
-  IgnorableNamespaces="uap rescap">
+  xmlns:uap18="http://schemas.microsoft.com/appx/manifest/uap/windows10/18"
+  IgnorableNamespaces="uap rescap uap18">
 
-  <Identity Name="adeethyiashankar-actquick" Publisher="CN=User Name" Version="0.0.0.0" />
+  <Identity Name="adeethyiashankar.act-quick" Publisher="CN=User Name" Version="0.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="0784EC89-4D1F-42E5-96AD-01C5F9189882" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>$placeholder$</DisplayName>
+    <DisplayName>Act Quick</DisplayName>
     <PublisherDisplayName>Adeethyia Shankar</PublisherDisplayName>
-    <Logo>$placeholder$.png</Logo>
+    <Logo>Resources\AppIcon\Windows\$placeholder$.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -26,15 +27,27 @@
   </Resources>
 
   <Applications>
-    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Act_Quick.App" uap18:RuntimeBehavior="windowsApp" uap18:TrustLevel="appContainer">
       <uap:VisualElements
-        DisplayName="$placeholder$"
-        Description="$placeholder$"
-        Square150x150Logo="$placeholder$.png"
-        Square44x44Logo="$placeholder$.png"
+        DisplayName="Act Quick"
+        Description="Be prepared for emergencies. Act Quick has a list of emergencies and short tips on how to prepare and stay safe during each emergency. Also, create an emergency kit with Act Quick, which provides a basic list of necessities for such a kit."
+        Square150x150Logo="Resources\AppIcon\Windows\$placeholder$.png"
+        Square44x44Logo="Resources\AppIcon\Windows\$placeholder$.png"
         BackgroundColor="transparent">
-        <uap:DefaultTile Square71x71Logo="$placeholder$.png" Wide310x150Logo="$placeholder$.png" Square310x310Logo="$placeholder$.png" />
-        <uap:SplashScreen Image="$placeholder$.png" />
+        <uap:DefaultTile Square71x71Logo="Resources\AppIcon\Windows\$placeholder$.png" Wide310x150Logo="Resources\AppIcon\Windows\$placeholder$.png" Square310x310Logo="Resources\AppIcon\Windows\$placeholder$.png"  ShortName="logo">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo"/>
+            <uap:ShowOn Tile="wide310x150Logo"/>
+            <uap:ShowOn Tile="square310x310Logo"/>
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile >
+        <uap:SplashScreen Image="Resources\AppIcon\Windows\$placeholder$.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape"/>
+          <uap:Rotation Preference="portrait"/>
+          <uap:Rotation Preference="landscapeFlipped"/>
+          <uap:Rotation Preference="portraitFlipped"/></uap:InitialRotationPreference>
+        <uap:LockScreen BadgeLogo="Resources\AppIcon\Windows\BadgeLogo.png" Notification="badgeAndTileText"/>
       </uap:VisualElements>
     </Application>
   </Applications>
