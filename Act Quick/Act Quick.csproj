@@ -32,7 +32,6 @@
 
 		<AndroidMinSdkVersion>21</AndroidMinSdkVersion>
 		<AndroidTargetSdkVersion>34</AndroidTargetSdkVersion>
-		<Configuration>Release</Configuration>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
@@ -41,6 +40,14 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 		<DefaultLanguage>en</DefaultLanguage>
+		<GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+		<AppxPackageSigningEnabled>False</AppxPackageSigningEnabled>
+		<AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+		<AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+		<AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+		<GenerateTestArtifacts>True</GenerateTestArtifacts>
+		<GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
+		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -58,6 +65,64 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.scale-100.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.scale-125.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.scale-150.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.scale-200.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.scale-400.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-16.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-16_altform-lightunplated.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-16_altform-unplated.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-24.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-24_altform-lightunplated.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-24_altform-unplated.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-256.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-256_altform-lightunplated.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-256_altform-unplated.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-32.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-32_altform-lightunplated.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-32_altform-unplated.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-48.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-48_altform-lightunplated.png" />
+	  <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-48_altform-unplated.png" />
+	  <Content Include="Resources\AppIcon\Windows\BadgeLogo.scale-100.png" />
+	  <Content Include="Resources\AppIcon\Windows\BadgeLogo.scale-125.png" />
+	  <Content Include="Resources\AppIcon\Windows\BadgeLogo.scale-150.png" />
+	  <Content Include="Resources\AppIcon\Windows\BadgeLogo.scale-200.png" />
+	  <Content Include="Resources\AppIcon\Windows\BadgeLogo.scale-400.png" />
+	  <Content Include="Resources\AppIcon\Windows\large.scale-100.png" />
+	  <Content Include="Resources\AppIcon\Windows\large.scale-125.png" />
+	  <Content Include="Resources\AppIcon\Windows\large.scale-150.png" />
+	  <Content Include="Resources\AppIcon\Windows\large.scale-200.png" />
+	  <Content Include="Resources\AppIcon\Windows\large.scale-400.png" />
+	  <Content Include="Resources\AppIcon\Windows\medium.scale-100.png" />
+	  <Content Include="Resources\AppIcon\Windows\medium.scale-125.png" />
+	  <Content Include="Resources\AppIcon\Windows\medium.scale-150.png" />
+	  <Content Include="Resources\AppIcon\Windows\medium.scale-200.png" />
+	  <Content Include="Resources\AppIcon\Windows\medium.scale-400.png" />
+	  <Content Include="Resources\AppIcon\Windows\PackageLogo.scale-100.png" />
+	  <Content Include="Resources\AppIcon\Windows\PackageLogo.scale-125.png" />
+	  <Content Include="Resources\AppIcon\Windows\PackageLogo.scale-150.png" />
+	  <Content Include="Resources\AppIcon\Windows\PackageLogo.scale-200.png" />
+	  <Content Include="Resources\AppIcon\Windows\PackageLogo.scale-400.png" />
+	  <Content Include="Resources\AppIcon\Windows\small.scale-100.png" />
+	  <Content Include="Resources\AppIcon\Windows\small.scale-125.png" />
+	  <Content Include="Resources\AppIcon\Windows\small.scale-150.png" />
+	  <Content Include="Resources\AppIcon\Windows\small.scale-200.png" />
+	  <Content Include="Resources\AppIcon\Windows\small.scale-400.png" />
+	  <Content Include="Resources\AppIcon\Windows\SplashScreen.scale-100.png" />
+	  <Content Include="Resources\AppIcon\Windows\SplashScreen.scale-125.png" />
+	  <Content Include="Resources\AppIcon\Windows\SplashScreen.scale-150.png" />
+	  <Content Include="Resources\AppIcon\Windows\SplashScreen.scale-200.png" />
+	  <Content Include="Resources\AppIcon\Windows\SplashScreen.scale-400.png" />
+	  <Content Include="Resources\AppIcon\Windows\wide.scale-100.png" />
+	  <Content Include="Resources\AppIcon\Windows\wide.scale-125.png" />
+	  <Content Include="Resources\AppIcon\Windows\wide.scale-150.png" />
+	  <Content Include="Resources\AppIcon\Windows\wide.scale-200.png" />
+	  <Content Include="Resources\AppIcon\Windows\wide.scale-400.png" />
 	</ItemGroup>
 
 	<ItemGroup>
