@@ -7,7 +7,7 @@
   xmlns:uap18="http://schemas.microsoft.com/appx/manifest/uap/windows10/18"
   IgnorableNamespaces="uap rescap uap18">
 
-  <Identity Name="AdeethyiaShankar.14012DD0AC11E" Publisher="CN=F035EAD7-9E29-43A0-A3B6-9C8307920DED" Version="1.1.0.0" />
+  <Identity Name="AdeethyiaShankar.14012DD0AC11E" Publisher="CN=F035EAD7-9E29-43A0-A3B6-9C8307920DED" Version="1.1.1.0" />
 
   <mp:PhoneIdentity PhoneProductId="3a53db20-bf14-47c5-97cd-70be995439e3" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
@@ -34,7 +34,7 @@
         Square150x150Logo="Resources\AppIcon\Windows\medium.png"
         Square44x44Logo="Resources\AppIcon\Windows\AppIcon.png"
         BackgroundColor="transparent">
-        <uap:DefaultTile Square71x71Logo="Resources\AppIcon\Windows\small.png" Wide310x150Logo="Resources\AppIcon\Windows\wide.png" Square310x310Logo="Resources\AppIcon\Windows\large.png"  ShortName="logo">
+        <uap:DefaultTile Square71x71Logo="Resources\AppIcon\Windows\small.png" Wide310x150Logo="Resources\AppIcon\Windows\wide.png" Square310x310Logo="Resources\AppIcon\Windows\large.png"  >
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo"/>
             <uap:ShowOn Tile="wide310x150Logo"/>
