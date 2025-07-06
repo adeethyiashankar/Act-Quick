@@ -4,11 +4,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Act_Quick"
-    Shell.FlyoutBehavior="Flyout"
-    Title="Act Quick"
-    Shell.FlyoutWidth="200">
+    Title="Act Quick">
 
-    <!-- Flyout items -->    
     <Shell.Items>
         <FlyoutItem Title="Home">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>

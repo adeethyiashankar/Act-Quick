@@ -5,20 +5,28 @@
         public App()
         {
             InitializeComponent();
-            MainPage = new AppShell();
         }
+
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            Window window = base.CreateWindow(activationState);
-            if (activationState != null && window != null)
-            {
+            var window = new Window(new AppShell());
 #if WINDOWS
-                window.Width = 400; // Set the width of the window
-                window.Height = 700; // Set the height of the window
+            window.HandlerChanged += (s, e) =>
+            {
+                var mauiWindow = window.Handler?.PlatformView as Microsoft.UI.Xaml.Window;
+                if (mauiWindow != null)
+                {
+                    var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(mauiWindow);
+                    var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hwnd);
+                    var appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
+                    if (appWindow != null)
+                    {
+                        appWindow.Resize(new Windows.Graphics.SizeInt32(500, 800));
+                    }
+                }
+            };
 #endif
-                return window;
-            }
-            return base.CreateWindow(activationState);
+            return window;
         }
     }
 }

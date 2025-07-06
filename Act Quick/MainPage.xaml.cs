@@ -2,10 +2,12 @@
 {
     public partial class MainPage : ContentPage
     {
+
         public MainPage()
         {
             InitializeComponent();
         }
+
         private async void ChangePageCommand(object sender, EventArgs e)
         {
             if (sender is Button button)

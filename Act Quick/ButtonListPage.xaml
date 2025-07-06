@@ -6,7 +6,7 @@
 
     <CollectionView x:Name="ButtonCollectionView" ItemsSource="{Binding ButtonNames}">
         <CollectionView.ItemTemplate>
-            <DataTemplate>
+            <DataTemplate x:DataType="x:String">
                 <Button Text="{Binding .}" Clicked="OnButtonClicked" />
             </DataTemplate>
         </CollectionView.ItemTemplate>
