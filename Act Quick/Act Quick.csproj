@@ -1,14 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net9.0-ios;net9.0-maccatalyst;net9.0-android</TargetFrameworks>
-    <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
-    <!-- <TargetFrameworks>$(TargetFrameworks);net9.0-tizen</TargetFrameworks> -->
-    <!-- Note for MacCatalyst:
-		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
-		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
-		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
-		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
-    <!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+    <TargetFrameworks>net10.0-ios;net10.0-maccatalyst;net10.0-android</TargetFrameworks>
     <OutputType>Exe</OutputType>
     <RootNamespace>Act_Quick</RootNamespace>
     <UseMaui>true</UseMaui>
@@ -20,9 +12,9 @@
     <!-- App Identifier -->
     <ApplicationId>adeethyiashankar.act_quick</ApplicationId>
     <!-- Versions -->
-    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-    <ApplicationVersion>1</ApplicationVersion>
-    <!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
+    <ApplicationDisplayVersion>1.14</ApplicationDisplayVersion>
+    <ApplicationVersion>14</ApplicationVersion>
+	<PackageVersion>1.14</PackageVersion>
     <WindowsPackageType>None</WindowsPackageType>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
@@ -32,40 +24,20 @@
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-android|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0-android|AnyCPU'">
     <AndroidEnableMultiDex>True</AndroidEnableMultiDex>
     <Debugger>Xamarin</Debugger>
-    <ApplicationVersion>13</ApplicationVersion>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0-android|AnyCPU'">
     <AndroidEnableMultiDex>True</AndroidEnableMultiDex>
     <AndroidLinkTool>r8</AndroidLinkTool>
     <Debugger>Xamarin</Debugger>
     <AndroidPackageFormat>aab</AndroidPackageFormat>
     <AndroidUseAapt2>True</AndroidUseAapt2>
     <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
-    <ApplicationVersion>13</ApplicationVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-ios|AnyCPU'">
-    <ApplicationVersion>13</ApplicationVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-maccatalyst|AnyCPU'">
-    <ApplicationVersion>13</ApplicationVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-windows10.0.19041.0|AnyCPU'">
-    <ApplicationVersion>13</ApplicationVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-ios|AnyCPU'">
-    <ApplicationVersion>13</ApplicationVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-maccatalyst|AnyCPU'">
-    <ApplicationVersion>13</ApplicationVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-windows10.0.19041.0|AnyCPU'">
-    <ApplicationVersion>13</ApplicationVersion>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.26100.0</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
     <!-- App Icon -->
@@ -80,64 +52,7 @@
     <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\AppIcon\Windows\AppIcon.scale-100.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.scale-125.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.scale-150.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.scale-200.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.scale-400.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-16.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-16_altform-lightunplated.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-16_altform-unplated.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-24.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-24_altform-lightunplated.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-24_altform-unplated.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-256.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-256_altform-lightunplated.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-256_altform-unplated.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-32.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-32_altform-lightunplated.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-32_altform-unplated.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-48.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-48_altform-lightunplated.png" />
-    <Content Include="Resources\AppIcon\Windows\AppIcon.targetsize-48_altform-unplated.png" />
-    <Content Include="Resources\AppIcon\Windows\BadgeLogo.scale-100.png" />
-    <Content Include="Resources\AppIcon\Windows\BadgeLogo.scale-125.png" />
-    <Content Include="Resources\AppIcon\Windows\BadgeLogo.scale-150.png" />
-    <Content Include="Resources\AppIcon\Windows\BadgeLogo.scale-200.png" />
-    <Content Include="Resources\AppIcon\Windows\BadgeLogo.scale-400.png" />
-    <Content Include="Resources\AppIcon\Windows\large.scale-100.png" />
-    <Content Include="Resources\AppIcon\Windows\large.scale-125.png" />
-    <Content Include="Resources\AppIcon\Windows\large.scale-150.png" />
-    <Content Include="Resources\AppIcon\Windows\large.scale-200.png" />
-    <Content Include="Resources\AppIcon\Windows\large.scale-400.png" />
-    <Content Include="Resources\AppIcon\Windows\medium.scale-100.png" />
-    <Content Include="Resources\AppIcon\Windows\medium.scale-125.png" />
-    <Content Include="Resources\AppIcon\Windows\medium.scale-150.png" />
-    <Content Include="Resources\AppIcon\Windows\medium.scale-200.png" />
-    <Content Include="Resources\AppIcon\Windows\medium.scale-400.png" />
-    <Content Include="Resources\AppIcon\Windows\PackageLogo.scale-100.png" />
-    <Content Include="Resources\AppIcon\Windows\PackageLogo.scale-125.png" />
-    <Content Include="Resources\AppIcon\Windows\PackageLogo.scale-150.png" />
-    <Content Include="Resources\AppIcon\Windows\PackageLogo.scale-200.png" />
-    <Content Include="Resources\AppIcon\Windows\PackageLogo.scale-400.png" />
-    <Content Include="Resources\AppIcon\Windows\small.scale-100.png" />
-    <Content Include="Resources\AppIcon\Windows\small.scale-125.png" />
-    <Content Include="Resources\AppIcon\Windows\small.scale-150.png" />
-    <Content Include="Resources\AppIcon\Windows\small.scale-200.png" />
-    <Content Include="Resources\AppIcon\Windows\small.scale-400.png" />
-    <Content Include="Resources\AppIcon\Windows\SplashScreen.scale-100.png" />
-    <Content Include="Resources\AppIcon\Windows\SplashScreen.scale-125.png" />
-    <Content Include="Resources\AppIcon\Windows\SplashScreen.scale-150.png" />
-    <Content Include="Resources\AppIcon\Windows\SplashScreen.scale-200.png" />
-    <Content Include="Resources\AppIcon\Windows\SplashScreen.scale-400.png" />
-    <Content Include="Resources\AppIcon\Windows\wide.scale-100.png" />
-    <Content Include="Resources\AppIcon\Windows\wide.scale-125.png" />
-    <Content Include="Resources\AppIcon\Windows\wide.scale-150.png" />
-    <Content Include="Resources\AppIcon\Windows\wide.scale-200.png" />
-    <Content Include="Resources\AppIcon\Windows\wide.scale-400.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.90" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.10" />
   </ItemGroup>
 </Project>
